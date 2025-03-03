@@ -1,13 +1,15 @@
+
 <img src="docs/images/owlmind-banner.png" width=800>
 
-### [Understand](./README.md#owlmind) | [Get Started](./README.md#getting-started) | [Extend](./README.md#extending) | [Contribute](./CONTRIBUTING.md)
+### [Understand](./README.md) | [Get Started](./README.md#getting-started) | [Contribute](./CONTRIBUTING.md)
+
 
 # Contributing to OwlMind
 
 Welcome! OwlMind Framework is a community project that aims at a Framework for Education and Experimentation with Generative Intelligence System. If you're trying OwlMind Framework on your Education projects, your experience and what you can contribute are
 important to the project's success.
 
-If you're looking for things to help with, browse our [issue tracker](https://github.com/GenILab-FAU/owlmind/issues)!
+If you're looking for things to help with, browse our [issue tracker](https://github.com/genilab-fau/owlmind/issues)!
 
 
 ## Code of Conduct
@@ -23,12 +25,12 @@ articulated in the [Python Community Code of Conduct](https://www.python.org/psf
 
 #### (1) Fork the Owlmind repository
 
-Within GitHub, navigate to <https://github.com/GenILab-FAU/owlmind> and fork the repository.
+Within GitHub, navigate to <https://github.com/genilab-fau/owlmind> and fork the repository.
 
 #### (2) Clone the Owlmind repository and enter into it
 
 ```bash
-git clone git@github.com:GenILab-FAU/owlmind.git
+git clone git@github.com:genilab-fau/owlmind.git
 cd pwlmind
 ```
 
@@ -62,14 +64,14 @@ hash -r  # This resets shell PATH cache, not necessary on Windows
 
 ## First time contributors
 
-If you're looking for things to help with, browse our [issue tracker](https://github.com/GenILab-FAU/owlmind/issues)!
+If you're looking for things to help with, browse our [issue tracker](https://github.com/genilab-fau/owlmind/issues)!
 
 In particular, look for entries in these categories, depending on your interests and skills:
 
-- [good first issues](https://github.com/GenILab-FAU/owlmind/labels/good-first-issue)
-- [documentation issues](https://github.com/GenILab-FAU/owlmind/documentation)
-- [enhancements](https://github.com/GenILab-FAU/owlmind/labels/enhancement)
-- [challenges](https://github.com/GenILab-FAU/owlmind/labels/challenges)
+- [good first issues](https://github.com/genilab-fau/owlmind/labels/good-first-issue)
+- [documentation issues](https://github.com/genilab-fau/owlmind/documentation)
+- [enhancements](https://github.com/genilab-fau/owlmind/labels/enhancement)
+- [challenges](https://github.com/genilab-fau/owlmind/labels/challenges)
 
 
 You do not need to ask for permission to work on any of these issues.
@@ -119,7 +121,7 @@ In some cases (most notably platform compatibility), we may do manual testing in
 * PR has a message or comments that explain what the PR does in some detail, and why this 
 is useful. For small changes this is less important, but the more complex the change, 
 the more important this is.
-* There is an open issue in our [issue tracker](https://github.com/GenILab-FAU/owlmind/issues) 
+* There is an open issue in our [issue tracker](https://github.com/genilab-fau/owlmind/issues) 
 related to your PR that has been discussed, and there are no unresolved objections 
 or open questions. 
 * PRs that address issues in more imminent milestones get priority when reviewing.

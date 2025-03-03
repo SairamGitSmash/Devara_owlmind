@@ -1,21 +1,20 @@
+
+<img src="docs/images/owlmind-banner.png" width=800>
+
+### [Understand](../README.md) | [Get Started](../README.md#getting-started) | [Contribute](../CONTRIBUTING.md)
+
+
 # How-to Configure Dialog Rules in Bot-1?
-
-Check also:
-* [Getting Started with OwlMind](../README.md)
-* [How-to Configure a Discord Bot with OwlMind?](discord.md)
-
-
-# Description
 
 Bot-1 is our Getting Started with simple Discord Bot connected to a Rule-Based Bot engine.
 
-It works based on a Rule-Based system with simple deliberation process, defined by the [SimpleBrain Class](../owlmind/simplebrain.py)
+It works based on a Rule-Based system with simple deliberation process, defined by the [SimpleEngine Class](../owlmind/simple.py)
 
 The code loads a set of Rules (Condition-Actions) from a Common-Separated-Value (CSV) file:
 
-```
-    # Load Simples Bot Brain loading rules from a CSV
-    brain = SimpleBrain(id='bot-1')
+```python
+    # Load Simples Bot Engine loading rules from a CSV
+    brain = SimpleEngine(id='bot-1')
     brain.load('rules/bot-rules-2.csv')
 ```
 
@@ -55,7 +54,7 @@ message, response
 Examples:
 
 ```
-If the Question is 'Hellow, how are you?'
+If the Question is 'Hello, how are you?'
 There are two possible answers as '*hello*' wll match twice:
     - Hi there! 
     - Hello!
@@ -79,7 +78,7 @@ A: Understanding the purpose helps in defining clear requirements.
 The RULE could be configured as follows:
 
 ```
-message, respose
+message, repose
 (...)
 *purpose*requirement analysis*, Understanding the purpose helps in defining clear requirements.
 ```
@@ -90,7 +89,7 @@ message, respose
 * the Action (value under the column "response") will be returned as Answer
 
 
-Hence, if you have mapped three Quesitons-Answers for yoru interaction, for instance:
+Hence, if you have mapped three Questions-Answers for your interaction, for instance:
 
 ```
 Q: What is the purpose of requirement analysis?
@@ -110,7 +109,7 @@ A: Solution Overview ensures clarity and traceability.
 Your rules.csv file could look like, for instance:
 
 ```
-message, respose
+message, response
 *purpose of*requirement analysys*, Understanding the purpose helps in defining clear requirements.
 *determine*requirements*, By analyzing user needs and stakeholder input.
 *need*solution overview*, Solution Overview ensures clarity and traceability.
@@ -121,20 +120,24 @@ Next, you have to load the CSV file while starting bot-1.py, by either:
 * (Option 1) Place your CSV file in rules/bot-rules-2.csv OR
 * (Option 2) Hard-code the position of your CSV file in bot-1.py:
 
-```
-    # Load Simples Bot Brain loading rules from a CSV
-    brain = SimpleBrain(id='bot-1')
-    brain.load('Enter_Your_CSV_File_Here.csv')
-```
+```python
 
-Next, start bot-1.py and maky sure it is loading YOUR CSV file:
+    # Load Simples Bot Engine loading rules from a CSV
+    engine = SimpleEngine(id='bot-1')
+    engine.load('Enter_Your_CSV_File_Here.csv')
 
 ```
+
+Next, start bot-1.py and make sure it is loading YOUR CSV file:
+
+```bash
+
 $ python3 bot-1.py
 Bot is running as: DemoBot.
 Debug is on!
-Bot is connected to SimpleBrain(bot-1).
-SimpleBrain bot-1 loaded 66 Rules from rules/bot-rules-2.csv.
+Bot is connected to SimpleEngine(bot-1).
+SimpleEngine bot-1 loaded 66 Rules from rules/bot-rules-2.csv.
+
 ```
 
 

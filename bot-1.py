@@ -1,9 +1,9 @@
 ##
 ## OwlMind - Platform for Education and Experimentation with Generative Intelligent Systems
-## bot-1.py :: Getting Started with simple Discord Bot connected to a Rule-Based Bot engine
+## bot-1.py :: Getting Started with simple HybridAI-based Discord Bot
 ## 
 #  
-# Copyright (c) 2024 Dr. Fernando Koch, The Generative Intelligence Lab @ FAU
+# Copyright (c) 2024 The Generative Intelligence Lab @ FAU
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -16,46 +16,39 @@
 # copies or substantial portions of the Software.
 # 
 # Documentation and Getting Started:
-#    https://github.com/GenILab-FAU/owlmind
+#    https://github.com/genilab-fau/owlmind
 #
 # Class Documentation at:
-#    https://github.com/GenILab-FAU/owlmind/docs/bot-1.md
+#    https://github.com/genilab-fau/owlmind/bot-1.md
 #
 # Disclaimer: 
 # Generative AI has been used extensively while developing this package.
 # 
 
 from dotenv import dotenv_values
+from owlmind.pipeline import ModelProvider
+from owlmind.simple import SimpleEngine
 from owlmind.discord import DiscordBot
-from owlmind.simplebrain import SimpleBrain
-
-from discord.ext import commands
 
 if __name__ == '__main__':
 
     # load token from .env
-    config = dotenv_values(".env")
-    TOKEN = config['TOKEN']
-    ## Alternative: Hard-code your TOKEN here and remote the comment:
-    # TOKEN={My Token} 
+    config = dotenv_values('.env')
+    TOKEN = config['DISCORD_TOKEN']
+    URL = config['SERVER_URL']
+    MODEL = config['SERVER_MODEL'] if 'SERVER_MODEL' in config else None
+    TYPE = config['SERVER_TYPE'] if 'SERVER_TYPE' in config else None
+    API_KEY = config['SERVER_API_KEY'] if 'SERVER_API_KEY' in config else None
+
+    # Configure a ModelProvider if there is an URL
+    provider = ModelProvider(type=TYPE,  base_url=URL, api_key=API_KEY, model=MODEL) if URL else None
 
     # Load Simples Bot Brain loading rules from a CSV
-    brain = SimpleBrain(id='bot-1')
-    brain.load('rules/new-rules.csv')
+    engine = SimpleEngine(id='bot-1')
+    engine.model_provider = provider
+    engine.load('rules/bot-rules-3.csv')
 
     # Kick start the Bot Runner process
-    bot = DiscordBot(token=TOKEN, brain=brain, debug=True)
-
-    faqs = {
-    "What is the best way to study?": "The best way to study is through active recall, spaced repetition, and summarization.",
-    "How can I improve focus?": "Try the Pomodoro technique, eliminate distractions, and take regular breaks."
-}
-
-bot = commands.Bot(command_prefix="/")
-
-@bot.command()
-async def faq(ctx, *, question: str):
-    answer = faqs.get(question, "Sorry, I don't have an answer for that yet!")
-    await ctx.send(answer)
+    bot = DiscordBot(token=TOKEN, engine=engine, debug=True)
     bot.run()
 

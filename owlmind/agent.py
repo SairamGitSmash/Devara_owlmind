@@ -1,11 +1,11 @@
 ##
-## OwlMind - Platform for Education and Experimentation with Generative Intelligent Systems
+## OwlMind - Platform for Education and Experimentation with Hybrid Intelligent Systems
 ## agent.py :: Core Agent structure 
 ## 
 ## These components implement Context-Aware Reasoning and Rule Base Inference
 ## at the core of Agent-based systems.
 #  
-# Copyright (c) 2024 Dr. Fernando Koch, The Generative Intelligence Lab @ FAU
+# Copyright (c) 2024, The Generative Intelligence Lab @ FAU
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@
 # copies or substantial portions of the Software.
 # 
 # Documentation and Getting Started:
-#    https://github.com/GenILab-FAU/owlmind
+#    https://github.com/genilab-fau/owlmind
 #
 # Disclaimer: 
 # Generative AI has been used extensively while developing this package.
@@ -70,19 +70,19 @@ class Agent():
     Implements the core functionality in Rule-based Agentic systems.
     Agents are components that Sense -> Deliberate -> Act.
     In this component, Deliberate is implemented through Rule-based deliberation, that is:
-        - Receives a Command with a gola and local Context (parameters)
+        - Receives a Command with a goal and local Context (parameters)
         - Deliberate about rules that could process that Command
         - Execute the Actions (=Capabilities) related to these Rules
         
     Actions can be:
         - internal actions such as 'learn new Belief', 'learn new Rule', forget X, etc
-        - external actions, implement throgh functional calling
+        - external actions, implement through functional calling
         - communication actions, sending messages to other agents.
 
     Internal structures include:
         Beliefs: Belief Base, storing Agent's long-term Memory, used during Deliberation.
         Plans: Rule Base, storing Deliberation Rules as 'goal({condition})->{action}'.
-        Capabilites: Capability Base, cataloguing Actions.
+        Capabilities: Capability Base, cataloguing Actions.
     
     @EXAMPLE
     How to use this class
@@ -135,7 +135,7 @@ class Agent():
         elif isinstance(knowledge, Belief) or isinstance(knowledge, dict):
             self.beliefs += knowledge
         else:
-            if Agent.DEBUG: print(f'Agent({self.id}).learn: received unnaceptable knowledge type, {type(knowledge)}')
+            if Agent.DEBUG: print(f'Agent({self.id}).learn: received unacceptable knowledge type, {type(knowledge)}')
         return self        
 
     def __repr__(self):
