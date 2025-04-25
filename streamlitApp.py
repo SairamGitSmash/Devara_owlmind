@@ -342,3 +342,7 @@ with tab3:
 st.markdown("---")
 st.caption("Built with ❤️ by COT6930 Final Project")
 st.markdown("<div style='text-align: center; font-size: 14px;'>Devara_Bot Team</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; font-size: 12px;'>© 2023 Devara_Bot Team</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; font-size: 12px;'>All rights reserved.</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; font-size: 12px;'>This project is for educational purposes only.</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; font-size: 12px;'>Contact: devteam@devara_bot.com</div>", unsafe_allow_html=True)
