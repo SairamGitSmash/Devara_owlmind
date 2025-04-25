@@ -112,8 +112,6 @@ class SimpleEngine(BotEngine):
             plan_str : str = str(self.plans)
             context.response += "```\n" + plan_str[0:1500] + "\n```"
 
-
-
         elif context['message'] == '/reload':
             context.response = f'### Version: {BotMessage.VERSION}\n'
             self.plans.clear()
@@ -121,6 +119,23 @@ class SimpleEngine(BotEngine):
                 context.response += f'### Loading: {self.rule_file}\n'
                 self.load(file_name=self.rule_file)
             context.response += f'### Reloaded with {len(self.plans)} plans!'
+
+
+
+        elif context['message'].startswith('/quiz'):
+            prompt = "Create a multiple-choice quiz question related to software development or AI with 4 options and mark the correct one."
+            if self.model_provider:
+                context.response = self.model_provider.request(prompt)
+            else:
+                context.response = "Quiz module not connected to model!"
+
+
+        elif context['message'].startswith('/schedule'):
+            prompt = "Based on current date and a study plan for Python, ML, and GenAI, create a 3-block schedule using Pomodoro technique."
+            if self.model_provider:
+                context.response = self.model_provider.request(prompt)
+            else:
+                context.response = "Schedule module not connected to model!"
 
         elif context in self.plans:
             if self.debug: print(f'SimpleEngine: response={context.result}, alternatives={len(context.alternatives)}, score={context.score}')
